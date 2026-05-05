@@ -1,0 +1,112 @@
+/* Clerk Authentication Styles Override */
+
+/* Override Clerk component styles */
+.cl-internal-b3l6o3 {
+  color: #f8fafc !important;
+}
+
+.cl-internal-1m2p2j {
+  color: #f8fafc !important;
+}
+
+.cl-internal-1x0b3n {
+  color: #f8fafc !important;
+}
+
+/* Form labels and text */
+.cl-formFieldLabel {
+  color: #d1d5db !important;
+  font-weight: 500 !important;
+}
+
+.cl-headerTitle {
+  color: #22d3ee !important;
+  font-weight: 700 !important;
+}
+
+.cl-headerSubtitle {
+  color: #9ca3af !important;
+}
+
+.cl-formFieldInput {
+  color: #ffffff !important;
+  background-color: #1f2937 !important;
+  border-color: #374151 !important;
+}
+
+.cl-formFieldInput::placeholder {
+  color: #6b7280 !important;
+}
+
+/* Social buttons */
+.cl-socialButtonsBlockButton {
+  background-color: #1f2937 !important;
+  border-color: #374151 !important;
+  color: #ffffff !important;
+}
+
+.cl-socialButtonsBlockButton:hover {
+  background-color: #374151 !important;
+}
+
+/* Divider text */
+.cl-dividerText {
+  color: #6b7280 !important;
+}
+
+.cl-dividerLine {
+  background-color: #374151 !important;
+}
+
+/* Footer links */
+.cl-footerActionLink {
+  color: #22d3ee !important;
+}
+
+.cl-footerActionLink:hover {
+  color: #67e8f9 !important;
+}
+
+/* Alert messages */
+.cl-alert {
+  background-color: rgba(127, 29, 29, 0.5) !important;
+  border-color: #991b1b !important;
+  color: #fecaca !important;
+}
+
+/* Phone number input specific */
+.cl-internal-1v9t5k {
+  color: #ffffff !important;
+}
+
+.cl-internal-1v9t5k::placeholder {
+  color: #6b7280 !important;
+}
+
+/* Force all text to be visible */
+[class*="cl-"] {
+  color: #f8fafc !important;
+}
+
+/* Input fields specifically */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"] {
+  color: #ffffff !important;
+  background-color: #1f2937 !important;
+  border-color: #374151 !important;
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="password"]::placeholder,
+input[type="tel"]::placeholder {
+  color: #6b7280 !important;
+}
+
+/* Labels specifically */
+label {
+  color: #d1d5db !important;
+  font-weight: 500 !important;
+}

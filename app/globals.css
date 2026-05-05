@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #030712;
+  --foreground: #f8fafc;
 }
 
 @theme inline {
@@ -12,15 +12,312 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+body {
+  background: #000000;
+  color: var(--foreground);
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+  min-height: 100vh;
+}
+
+/* Glass-morphism utility class */
+.glass {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.05),
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Heading styles with tight tracking */
+h1, h2, h3, h4, h5, h6 {
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: -0.025em;
+  font-weight: 600;
+}
+
+/* Subtle float animation for cards */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Glass-pane utility class */
+.glass-pane {
+  background: rgba(255, 255, 255, 0.01);
+  backdrop-filter: blur(50px) saturate(200%) brightness(0.9);
+  -webkit-backdrop-filter: blur(50px) saturate(200%) brightness(0.9);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  /* This creates the 'Refraction' look */
+  box-shadow: 
+    inset 0 0 12px rgba(255, 255, 255, 0.05),
+    0 20px 50px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+/* This creates the sharp 'Light Catch' on the top and left edges */
+.glass-pane::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  z-index: 1;
+}
+
+/* Custom Scrollbar for Chrome, Safari, and Edge */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent; 
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(6, 182, 212, 0.4); /* Cyan glow on hover */
+}
+
+/* Firefox Support */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+}
+
+/* Scan line animation */
+@keyframes scan {
+  0% { top: -10%; opacity: 0; }
+  50% { opacity: 1; }
+  100% { top: 110%; opacity: 0; }
+}
+
+.scan-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #22d3ee, transparent);
+  box-shadow: 0 0 15px #22d3ee;
+  z-index: 20;
+  animation: scan 2s linear infinite;
+  pointer-events: none;
+}
+
+/* Circular progress ring animation */
+@keyframes gauge-load {
+  from { stroke-dashoffset: 283; }
+  to { stroke-dashoffset: var(--final-offset); }
+}
+
+.progress-ring {
+  transform: rotate(-90deg);
+  overflow: visible;
+}
+
+.gauge-circle {
+  transition: stroke-dashoffset 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.8));
+  animation: gauge-load 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Progressive disclosure animations for results */
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.result-item-1 {
+  animation: slideUpFade 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.result-item-2 {
+  animation: slideUpFade 0.6s ease-out 0.3s forwards;
+  opacity: 0;
+}
+
+.result-item-3 {
+  animation: slideUpFade 0.6s ease-out 0.6s forwards;
+  opacity: 0;
+}
+
+.result-item-4 {
+  animation: slideUpFade 0.6s ease-out 0.9s forwards;
+  opacity: 0;
+}
+
+.result-item-5 {
+  animation: slideUpFade 0.6s ease-out 1.2s forwards;
+  opacity: 0;
+}
+
+/* Shimmer effect for refining state */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.refining-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.05) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Fade-in animation for refined text */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.text-fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes glass-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.glass-text-shine {
+  /* 1. Make the base text semi-transparent so the nebula background bleeds through */
+  color: rgba(255, 255, 255, 0.15);
+  
+  /* 2. Add the 'Inner Glow' and 'Refraction' using a background-clip shim */
+  background: linear-gradient(
+    110deg,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(255, 255, 255, 0) 60%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  
+  /* 3. The 3D Glass Edge (This is the secret sauce) */
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.25);
+  
+  /* 4. The 'Glow' that moves with the light */
+  filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.1));
+  
+  /* 5. Animation */
+  animation: glass-shimmer 6s infinite linear;
+  
+  /* Ensuring it looks crisp */
+  backdrop-filter: blur(8px);
+}
+
+.glass-text-masterpiece {
+  position: relative;
+  /* 1. The 'Invisible' Base - allows background to show through */
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  
+  /* 2. The Bevel Edge - creates the 3D high-res crystal look */
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.4);
+  
+  /* 3. The Refractive Beam */
+  background: linear-gradient(
+    110deg,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0) 60%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  
+  /* 4. The Animation & Glow */
+  animation: glass-shimmer 5s infinite linear;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
+  
+  /* 5. The Glass Secret - blends with the nebula behind it */
+  mix-blend-mode: overlay;
+}
+
+@keyframes shimmer-sweep {
+  0% { left: -150%; }
+  100% { left: 150%; }
+}
+
+.liquid-glass-button {
+  /* 1. High-End Transparency: Let the Unsplash colors through! */
+  background: rgba(255, 255, 255, 0.03) !important;
+  backdrop-filter: blur(25px) saturate(200%);
+  -webkit-backdrop-filter: blur(25px) saturate(200%);
+  
+  /* 2. The Bevel: Sharp edges that catch the light */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  
+  /* 3. The 3D Shadow: Makes it look like it's floating */
+  box-shadow: 
+    inset 0 1px 1px rgba(255, 255, 255, 0.1),
+    0 10px 30px rgba(0, 0, 0, 0.5);
+    
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s cubic-bezier(0.2, 1, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.liquid-glass-button:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.8);
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 
+    inset 0 1px 4px rgba(255, 255, 255, 0.3),
+    0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+.liquid-glass-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 60px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transform: skewX(-30deg);
+  left: -150%;
+}
+
+.liquid-glass-button:hover::after {
+  animation: shimmer-sweep 0.8s ease-in-out;
 }

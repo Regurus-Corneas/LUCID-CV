@@ -1,0 +1,207 @@
+/* Clerk Authentication Styles Override */
+
+/* Override Clerk component styles */
+.cl-internal-b3l6o3 {
+  color: #f8fafc !important;
+}
+
+.cl-internal-1m2p2j {
+  color: #f8fafc !important;
+}
+
+.cl-internal-1x0b3n {
+  color: #f8fafc !important;
+}
+
+/* Form labels and text */
+.cl-formFieldLabel {
+  color: #d1d5db !important;
+  font-weight: 500 !important;
+}
+
+.cl-headerTitle {
+  color: #22d3ee !important;
+  font-weight: 700 !important;
+}
+
+.cl-headerSubtitle {
+  color: #9ca3af !important;
+}
+
+.cl-formFieldInput {
+  color: #ffffff !important;
+  background-color: #1f2937 !important;
+  border-color: #374151 !important;
+}
+
+.cl-formFieldInput::placeholder {
+  color: #6b7280 !important;
+}
+
+/* Social buttons */
+.cl-socialButtonsBlockButton {
+  background-color: #1f2937 !important;
+  border-color: #374151 !important;
+  color: #ffffff !important;
+}
+
+.cl-socialButtonsBlockButton:hover {
+  background-color: #374151 !important;
+}
+
+/* Divider text */
+.cl-dividerText {
+  color: #6b7280 !important;
+}
+
+.cl-dividerLine {
+  background-color: #374151 !important;
+}
+
+/* Footer links */
+.cl-footerActionLink {
+  color: #22d3ee !important;
+}
+
+.cl-footerActionLink:hover {
+  color: #67e8f9 !important;
+}
+
+/* Alert messages */
+.cl-alert {
+  background-color: rgba(127, 29, 29, 0.5) !important;
+  border-color: #991b1b !important;
+  color: #fecaca !important;
+}
+
+/* Phone number input specific */
+.cl-internal-1v9t5k {
+  color: #ffffff !important;
+}
+
+.cl-internal-1v9t5k::placeholder {
+  color: #6b7280 !important;
+}
+
+/* Country code selector styling */
+.cl-phoneInput {
+  background-color: #1f2937 !important;
+  border-color: #374151 !important;
+}
+
+.cl-phoneInputCountrySelect {
+  background-color: #1f2937 !important;
+  border-color: #374151 !important;
+  color: #ffffff !important;
+}
+
+.cl-phoneInputCountrySelectButton {
+  background-color: #1f2937 !important;
+  border-color: #374151 !important;
+  color: #ffffff !important;
+  border-radius: 6px !important;
+  padding: 8px 12px !important;
+}
+
+.cl-phoneInputCountrySelectPopover {
+  background-color: #1f2937 !important;
+  border-color: #374151 !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3) !important;
+}
+
+.cl-phoneInputCountrySelectOption {
+  background-color: #1f2937 !important;
+  color: #ffffff !important;
+  padding: 10px 16px !important;
+  border-radius: 4px !important;
+}
+
+.cl-phoneInputCountrySelectOption:hover {
+  background-color: #374151 !important;
+}
+
+.cl-phoneInputCountrySelectOption:focus {
+  background-color: #374151 !important;
+  outline: 2px solid #22d3ee !important;
+  outline-offset: 2px !important;
+}
+
+/* Additional phone input styling */
+.cl-phoneInputContainer {
+  background-color: #1f2937 !important;
+  border-color: #374151 !important;
+  border-radius: 8px !important;
+}
+
+.cl-phoneInputField {
+  background-color: #1f2937 !important;
+  border-color: #374151 !important;
+  color: #ffffff !important;
+}
+
+/* Dark scrollbar for country selector */
+.cl-phoneInputCountrySelectPopover::-webkit-scrollbar {
+  width: 6px;
+}
+
+.cl-phoneInputCountrySelectPopover::-webkit-scrollbar-track {
+  background: #1f2937;
+  border-radius: 3px;
+}
+
+.cl-phoneInputCountrySelectPopover::-webkit-scrollbar-thumb {
+  background: #4b5563;
+  border-radius: 3px;
+}
+
+.cl-phoneInputCountrySelectPopover::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
+
+/* Firefox scrollbar */
+.cl-phoneInputCountrySelectPopover {
+  scrollbar-width: thin;
+  scrollbar-color: #4b5563 #1f2937;
+}
+
+/* Force all phone input components to match */
+[data-clerk-phone-input] {
+  background-color: #1f2937 !important;
+  border-color: #374151 !important;
+}
+
+[data-clerk-country-select] {
+  background-color: #1f2937 !important;
+  border-color: #374151 !important;
+  color: #ffffff !important;
+}
+
+/* Force all text to be visible */
+[class*="cl-"] {
+  color: #f8fafc !important;
+}
+
+/* Input fields specifically */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"] {
+  color: #ffffff !important;
+  background-color: #1f2937 !important;
+  border-color: #374151 !important;
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="password"]::placeholder,
+input[type="tel"]::placeholder {
+  color: #6b7280 !important;
+}
+
+/* Labels specifically */
+label {
+  color: #d1d5db !important;
+  font-weight: 500 !important;
+}
